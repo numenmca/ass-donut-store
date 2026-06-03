@@ -2884,7 +2884,7 @@
       .shard-amount {
         font-weight: bold;
         font-size: 16px;
-        color: rgb(179, 75, 255);
+        color: rgb(255, 213, 75);
         margin-bottom: 12px;
       }
 
@@ -3122,7 +3122,7 @@
     </div>
 
     <div id="rData" style="display: none;">
-      { "donut_plus_packages": [5999412, 7446586, 7446588, 5000180965, 5000180964, 5000180963], "shard_packages":
+      { "donut_plus_packages": [5999412, 7446586, 7446588, 5000180965, 5000180964, 5000180963, 5000180966, 5000180967, 5000180968], "shard_packages":
       [7446855, 7446857, 7446858, 7446861, 7446862, 7446865], "misc_items": [],
       "misc_items2": [], "loaded": [] }
     </div>
@@ -3843,20 +3843,7 @@
       var lastModalOpenTime;
 
       function toggleModal(id) {
-        if (Date.now() - lastModalOpenTime < 500) return;
-        lastModalOpenTime = Date.now();
-
-        $.ajax({
-          url: `/package/${id}`,
-          success: (data) => {
-            $("#popup-modal").html(data);
-            $("#popup-modal").modal("show");
-            $("#popup-modal").removeAttr("aria-hidden"); // Ensure aria-hidden is removed
-          },
-          error: (error) => {
-            alert("Error loading content: " + error.responseText);
-          },
-        });
+        return; // cancel modals
       }
 
       function getShardConfig(packageData) {
@@ -3893,7 +3880,7 @@
         switch (packageData.id) {
             case 7446855: return "/sharts/400.png";
             case 7446857: return "/sharts/2500.png";
-            case 7446858: return "/sharts/5500.png";
+            case 7446858: return "/sharts/5500.gif";
             case 7446861: return "/sharts/12000.png";
             case 7446862: return "/sharts/32000.png";
             case 7446865: return "/sharts/70000.png";
@@ -4133,6 +4120,42 @@
               "MCDONALDS discount",
               "Arby's Takeover & Diddy Party invite",
                         ],
+          },
+          5000180966: {
+            name: '<span class="donut-rank-plus" style="color: #70c20b">NULL</span> Donut',
+            perks: [
+              "Break the game",
+              "Delete chunks",
+              "Access admin panel",
+              "Crash other players",
+              "Spawn 1000 withers",
+              "Kick the owner",
+              "Free null void",
+                        ],
+          },
+          5000180967: {
+            name: '<span class="donut-rank-plus" style="color: #05f6f8">Quantum Donut</span>',
+            perks: [
+              "Time travel (±5s)",
+              "Rollback items",
+              "Duplication glitch",
+              "See through walls",
+              "Ping: -420ms",
+              "Trade with past you",
+              "Probability hacks",
+                        ],
+          },
+          5000180968: {
+            name: '<span class="donut-rank-plus" style="color: #d33fcd">AI Donut</span>',
+            perks: [
+              "AI Plays for you",
+              "Auto farms everything",
+              "Writes chat messages",
+              "Predicts outcomes",
+              "Roasts other players",
+              "Lies to admins",
+                        ],
+            badge: "BETA"
           }
         };
         return (
@@ -4177,8 +4200,26 @@
           },
           5000180965: {
             id: 5000180965,
-            name: "Yaoi donut",
+            name: "Donut+++++",
             price: "8008",
+            type: "subscription"
+          },
+          5000180966: {
+            id: 5000180966,
+            name: "Ext 1",
+            price: "10000",
+            type: "subscription"
+          },
+          5000180967: {
+            id: 5000180967,
+            name: "Ext 2",
+            price: "42069.69",
+            type: "subscription"
+          },
+          5000180968: {
+            id: 5000180968,
+            name: "Ext 2",
+            price: "1234.56",
             type: "subscription"
           }
         };
@@ -4339,7 +4380,7 @@
         )
           return;
         shardLoader.before(
-          '<h2 class="donut-ranks-title shard-section-title">Shards</h2>',
+          '<h2 class="donut-ranks-title shard-section-title">Krypton client and meteor addons</h2>',
         );
       }
 
